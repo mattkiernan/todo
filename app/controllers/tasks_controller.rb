@@ -15,6 +15,13 @@ class TasksController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    list = List.find(params[:list_id])
+    task = list.tasks.find(params[:id]) 
+    task.destroy
+    redirect_to root_path 
+  end
+
   def task_params
     params.require(:task).permit(:description)
   end
