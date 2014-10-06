@@ -4,5 +4,8 @@
 
 <ul>
 <% @lists.each do |list| %>
-  <li><%= list.name %> - <%= list.description %></li>
+  <li><%= link_to list.name, list %> - <%= list.description %>
+<%= form_for list, method: :delete do |form| %>
+<%= form.submit "Delete list" %></li>
+  <% end %>
 <% end %>

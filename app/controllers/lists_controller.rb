@@ -22,4 +22,14 @@ class ListsController < ApplicationController
     params.require(:list).permit(:name, :description)
   end
 
+  def show
+    @list = List.find(params[:id])
+  end
+
+  def destroy
+    list = List.find(params[:id])
+    list.destroy
+    redirect_to root_path
+  end
+
 end
