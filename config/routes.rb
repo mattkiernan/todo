@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   resources  :lists, only: [:show, :new, :create, :destroy]
 
+  resources :tasks, only: [:new, :create, :show]
+
 end
